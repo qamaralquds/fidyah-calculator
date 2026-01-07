@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalkulator Fidyah</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background:#f4f4f4;
+    }
+    .fidyah-container{
+        max-width:500px;
+        margin:40px auto;
+        background:#fff;
+        padding:20px;
+        border-radius:8px;
+        box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+    h2{
+        text-align:center;
+        margin-bottom:10px;
+    }
+    label{
+        font-weight:bold;
+        display:block;
+        margin-bottom:5px;
+    }
+    input{
+        width:100%;
+        padding:10px;
+        margin-bottom:15px;
+        border:1px solid #ccc;
+        border-radius:4px;
+    }
+    .result-box{
+        background:#f1f1f1;
+        padding:12px;
+        border-radius:5px;
+        font-weight:bold;
+    }
+    button{
+        width:100%;
+        padding:10px;
+        border:none;
+        border-radius:4px;
+        background:#28a745;
+        color:#fff;
+        font-size:16px;
+        cursor:pointer;
+    }
+    button:hover{
+        background:#218838;
+    }
+</style>
+
+<script>
+function kiraFidyah(){
+    let hari = parseInt(document.getElementById("hariPuasa").value) || 0;
+    let fidyah = hari * 4;
+
+    document.getElementById("hasilFidyah").value = "RM " + fidyah.toFixed(2);
+}
+</script>
+
+</head>
+<body>
+
+<div class="fidyah-container">
+    <h2>Kalkulator Fidyah</h2>
+
+    <label for="hariPuasa">Bilangan hari puasa yang ditinggalkan:</label>
+    <input type="number" id="hariPuasa" value="0" min="0" oninput="kiraFidyah()">
+
+    <label>Jumlah Fidyah Perlu Dibayar:</label>
+    <input type="text" id="hasilFidyah" class="result-box" readonly>
+
+    <button onclick="kiraFidyah()">Kira Fidyah</button>
+</div>
+
+</body>
+</html>
